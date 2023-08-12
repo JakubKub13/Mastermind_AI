@@ -95,7 +95,7 @@ const MusicPage = () => {
                     )}
                     {!music && !isLoading && (
                         <Empty 
-                            label="No music started."
+                            label="No music generated."
                         />
                     )}
                    {music && (
