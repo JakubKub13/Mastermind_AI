@@ -47,7 +47,7 @@ const MusicPage = () => {
         proModal.openModal();
       } else {
         toast.error("Something went wrong.");
-      }
+      } 
     } finally {
       router.refresh();
     }

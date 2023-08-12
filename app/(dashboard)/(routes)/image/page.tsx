@@ -17,6 +17,7 @@ import { Loader } from "@/components/loader";
 import { Card, CardFooter } from "@/components/ui/card";
 import Image from "next/image";
 import { useProModal } from "@/hooks/use-pro-modal";
+import { toast } from "react-hot-toast";
 
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 
@@ -51,7 +52,8 @@ const ImagePage = () => {
         } catch (error: any) {
             if(error?.response?.status === 403 ) {
                 proModal.openModal();
-            }
+            } else {
+                toast.error("Something went wrong!")}
         } finally {
             router.refresh();
         }
