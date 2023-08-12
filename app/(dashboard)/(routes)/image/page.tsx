@@ -16,12 +16,13 @@ import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
 import { Card, CardFooter } from "@/components/ui/card";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 
 
 const ImagePage = () => {
+    const proModal = useProModal();
     const router = useRouter();
     const [images, setImages] = useState<string>([]);
 
@@ -48,8 +49,9 @@ const ImagePage = () => {
             setImages(urls);
             form.reset();
         } catch (error: any) {
-            // TODO: Open pro model
-            console.log(error);
+            if(error?.response?.status === 403 ) {
+                proModal.openModal();
+            }
         } finally {
             router.refresh();
         }
