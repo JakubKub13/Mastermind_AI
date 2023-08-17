@@ -108,3 +108,6 @@ export const ProModal = () => {
         </Dialog>
     )
 }
+
+
+size

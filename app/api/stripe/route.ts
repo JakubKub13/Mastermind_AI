@@ -65,3 +65,5 @@ export async function GET() {
     return new NextResponse("Internal Error", { status: 500 });
   }
 };
+
+// stripe listen --forward-to localhost:3000/api/webhook
